@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Happy Birthday Samridhi 🌷</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Floating Hearts Cursor -->
+    <script type="text/javascript">
+    var colours = ['#a8d8ff','#7ec8f7','#c8e8ff','#5ba3e8','#dceefb','#ffffff'];
+    var minisize = 14; var maxisize = 26; var hearts = 50;
+    var x = ox = 400, y = oy = 300, swide = 800, shigh = 600, sleft = sdown = 0;
+    var herz = [], herzx = [], herzy = [], herzs = [], kiss = false;
+    if (typeof('addRVLoadEvent') != 'function') function addRVLoadEvent(funky) {
+        var oldonload = window.onload;
+        if (typeof(oldonload) != 'function') window.onload = funky;
+        else window.onload = function() { if (oldonload) oldonload(); funky(); }
+    }
+    addRVLoadEvent(mwah);
+    function mwah() { if (document.getElementById) {
+        var i, heart;
+        for (i = 0; i < hearts; i++) {
+            heart = createDiv("auto","auto");
+            heart.style.visibility = "hidden";
+            heart.style.zIndex = "99999";
+            heart.style.color = colours[i % colours.length];
+            heart.style.pointerEvents = "none";
+            heart.style.opacity = 0.85;
+            heart.style.textShadow = "0 0 6px currentColor";
+            heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
+            document.body.appendChild(heart);
+            herz[i] = heart; herzy[i] = false;
+        }
+        set_scroll(); set_width(); herzle();
+    }}
+    function herzle() {
+        var c;
+        if (Math.abs(x-ox)>1||Math.abs(y-oy)>1) {
+            ox=x; oy=y;
+            for (c=0;c<hearts;c++) if (herzy[c]===false) {
+                herz[c].firstChild.nodeValue = String.fromCharCode(9829);
+                herz[c].style.left = (herzx[c]=x-minisize/2)+"px";
+                herz[c].style.top  = (herzy[c]=y-minisize)+"px";
+                herz[c].style.fontSize = minisize+"px";
+                herz[c].style.visibility='visible';
+                herzs[c]=minisize; break;
+            }
+        }
+        for (c=0;c<hearts;c++) if (herzy[c]!==false) blow_me_a_kiss(c);
+        setTimeout(herzle,40);
+    }
+    document.onmousedown = pucker;
+    document.onmouseup = function(){ clearTimeout(kiss); };
+    function pucker(){ ox=-1; oy=-1; kiss=setTimeout(pucker,100); }
+    function blow_me_a_kiss(i) {
+        herzy[i] -= herzs[i]/minisize + i%2;
+        herzx[i] += (i%5-2)/5;
+        if (herzy[i]<sdown-herzs[i]||herzx[i]<sleft-herzs[i]||herzx[i]>sleft+swide-herzs[i]) {
+            herz[i].style.visibility="hidden"; herzy[i]=false;
+        } else if (herzs[i]>minisize+2&&Math.random()<.5/hearts) break_my_heart(i);
+        else {
+            if (Math.random()<maxisize/herzy[i]&&herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
+            herz[i].style.top=herzy[i]+"px"; herz[i].style.left=herzx[i]+"px";
+        }
+    }
+    function break_my_heart(i) {
+        herz[i].firstChild.nodeValue=String.fromCharCode(9676);
+        herzy[i]=false;
+        setTimeout(()=>herz[i].style.visibility="hidden",400);
+    }
+    document.onmousemove = function(e){ if(e){y=e.pageY;x=e.pageX;} else{set_scroll();y=event.y+sdown;x=event.x+sleft;} };
+    window.onresize = set_width;
+    function set_width(){ swide=window.innerWidth||document.documentElement.clientWidth||800; shigh=window.innerHeight||document.documentElement.clientHeight||600; }
+    window.onscroll = set_scroll;
+    function set_scroll(){ sdown=window.pageYOffset||document.documentElement.scrollTop||0; sleft=window.pageXOffset||document.documentElement.scrollLeft||0; }
+    function createDiv(h,w){ var d=document.createElement("div"); d.style.position="absolute"; d.style.height=h; d.style.width=w; d.style.overflow="hidden"; d.style.backgroundColor="transparent"; return d; }
+    </script>
+</head>
+
+<body>
+    <!-- Tulip Entrance Screen -->
+    <div id="tulip-entrance">
+        <div class="entrance-card">
+            <div class="entrance-subtitle">✦ A Special Day &nbsp;·&nbsp; A Special Person ✦</div>
+
+            <div class="tulips-container">
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+                <div class="tulip">🌷</div>
+            </div>
+
+            <div class="entrance-text">Happy Birthday,<br><span class="entrance-name">Samridhi</span> 🎂</div>
+
+            <div class="entrance-divider"></div>
+
+            <div class="entrance-msg">
+                &ldquo;You've always been someone who stood by me,<br>
+                supported me, and understood me<br>
+                when I needed it the most.&rdquo;
+            </div>
+
+            <button id="play">
+                <span class="btn-icon">🌷</span>
+                Open Your Surprise
+                <span class="btn-icon">🌷</span>
+            </button>
+        </div>
+    </div>
+    <audio class="song" controls loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <canvas id="confetti"></canvas>
+    <div class="main">
+        <div class="container pt-5">
+            <div class="row">
+
+                <div class="col-12 col-xl-6 mx-auto">
+                    <img src="img/banner.png" alt="">
+                </div>
+
+                <div class="col-12  text-center">
+                    <div id="name" class="area">Samridhi</div>
+                </div>
+
+                <div class="col-12 text-center">
+                    <div class="type-wrap">
+                        <div id="typed-strings" class="typing">
+                            <h2>Happy Birthday <i id="nae">Samridhi</i>! 🎂❤️</h2>
+                            <h2>Wishing you a life full of happiness & peace 🌸</h2>
+                            <h2>Success and countless beautiful moments 💫</h2>
+                            <h2>You've always stood by me and supported me 🫶</h2>
+                            <h2>You understood me when I needed it the most ✨</h2>
+                            <h2>I genuinely appreciate having you in my life 💖</h2>
+                            <h2>May you always keep smiling, always 😊🌟</h2>
+                            <h2>Never lose the beautiful person you are 🌷</h2>
+                            <h2>Have an amazing birthday & a wonderful year ahead! 🥳💫</h2>
+                        </div>
+                        <span id="typed" style="white-space:pre;"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-3 cake">
+                    <img src="img/cake.gif" alt="">
+                </div>
+            </div>
+        </div>
+        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+    <script src="js/typed.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
